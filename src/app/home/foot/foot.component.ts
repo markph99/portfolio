@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './foot.component.css'
 })
 export class FootComponent {
-
+  currentYear: number = new Date().getFullYear();
 }
