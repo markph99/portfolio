@@ -5,11 +5,12 @@ import { AboutComponent } from "../about/about.component";
 import { ProjectsComponent } from "../projects/projects.component";
 import { FootComponent } from "../foot/foot.component";
 import { ContactComponent } from "../contact/contact.component";
+import { SkillsComponent } from "../skills/skills.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavComponent, HeroComponent, AboutComponent, ProjectsComponent, FootComponent, ContactComponent],
+  imports: [NavComponent, HeroComponent, AboutComponent, ProjectsComponent, FootComponent, ContactComponent, SkillsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

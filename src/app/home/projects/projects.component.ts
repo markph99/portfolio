@@ -20,7 +20,7 @@ export class ProjectsComponent {
       title: 'Portfolio Website',
       description: 'A personal portfolio showcasing my projects and skills.',
       image: 'https://via.placeholder.com/400x300',
-      link: 'https://yourportfolio.com', // Replace with actual project links
+      link: 'https://markph99.github.io/portfolio/', // Replace with actual project links
     },
     {
       title: 'Chat Application',

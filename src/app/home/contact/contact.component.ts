@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import emailjs from '@emailjs/browser'; // Importing emailjs
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
   formData = {
@@ -22,6 +23,7 @@ export class ContactComponent {
 
   isTyping = false;
   typingText = '';
+  successMessage: string = ''; // Success message string
 
   startTypingAnimation(field: string) {
     this.isTyping = true;
@@ -39,25 +41,54 @@ export class ContactComponent {
     }
   }
 
-  // Simulate typing effect
   typeText(text: string) {
-    this.typingText = ''; // Reset the text before starting new animation
+    this.typingText = '';
     let index = 0;
     const typingInterval = setInterval(() => {
       this.typingText += text[index];
       index++;
       if (index === text.length) {
-        clearInterval(typingInterval); // Stop typing effect when done
+        clearInterval(typingInterval);
       }
-    }, 100); // Adjust typing speed (milliseconds per character)
+    }, 100);
   }
 
   onInputChange(field: string, event: any) {
-    this.isTyping = false; // Stop the animation once user starts typing
-    this.typingText = event.target.value;
+    this.isTyping = false;
+    this.typingText = event.target.value; // Directly reflect input changes in typingText
   }
 
-  onSubmit() {
-    console.log('Form submitted:', this.formData);
+  async onSubmit() {
+    try {
+      const response = await emailjs.send(
+        'service_pw072wu', // Your EmailJS service ID
+        'template_800tdre', // Your EmailJS template ID
+        {
+          from_name: this.formData.name,
+          email: this.formData.email,
+          message: this.formData.message,
+          reply_to: this.formData.email, // Use the email as the reply_to field
+        },
+        '4qwa8TU4X2XdaqZe0' // Replace with your EmailJS public key
+      );
+      console.log('Email sent successfully!');
+      this.successMessage = 'Your message has been sent successfully!'; // Set success message
+      setTimeout(() => {
+        this.successMessage = ''; // Clear the success message after 5 seconds
+      }, 5000);
+      this.resetForm();
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('An error occurred while sending your message. Please try again.');
+    }
+  }
+
+  resetForm() {
+    this.formData = {
+      name: '',
+      email: '',
+      message: '',
+    };
+    this.typingText = ''; // Clear the typing effect
   }
 }
