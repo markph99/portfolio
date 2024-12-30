@@ -1,0 +1,92 @@
+<header class="bg-gray-900 text-gray-200 shadow-lg">
+  <nav class="container mx-auto flex items-center justify-between py-4 px-6 bg-gray-800 rounded-b-md">
+    <!-- Left Side: Logo -->
+    <div class="text-2xl font-bold">
+      <a href="#home" class="text-white">
+        <span class="text-teal-500"><</span>dev
+        <span class="text-teal-500">></span>
+      </a>
+    </div>
+
+    <!-- Center: Navigation Links (Desktop) -->
+    <ul class="hidden md:flex space-x-8 text-base font-semibold">
+      <li [ngClass]="{'active-link': activeLink === 'home'}">
+        <a href="#home" class="relative group pb-2">
+          <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-green-400 group-hover:to-purple-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
+            Home
+          </span>
+          <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-blue-400 via-green-400 to-purple-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
+        </a>
+      </li>
+      <li [ngClass]="{'active-link': activeLink === 'about'}">
+        <a href="#about" class="relative group pb-2">
+          <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-yellow-400 group-hover:to-red-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
+            About
+          </span>
+          <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
+        </a>
+      </li>
+      <li [ngClass]="{'active-link': activeLink === 'projects'}">
+        <a href="#projects" class="relative group pb-2">
+          <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-red-400 group-hover:via-pink-400 group-hover:to-purple-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
+            Projects
+          </span>
+          <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
+        </a>
+      </li>
+      <li [ngClass]="{'active-link': activeLink === 'contact'}">
+        <a href="#contact" class="relative group pb-2">
+          <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-blue-400 group-hover:to-green-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
+            Contact
+          </span>
+          <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right Side: Call-to-Action Button -->
+    <div class="hidden md:block">
+      <a href="#portfolio" class="bg-teal-500 text-white px-5 py-2 rounded-lg font-medium shadow-lg hover:bg-teal-600 transition duration-300">
+        Portfolio
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="md:hidden flex items-center text-gray-200 hover:text-teal-400 transition duration-300"
+      (click)="toggleMenu()"
+      aria-label="Toggle Mobile Menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </nav>
+
+<!-- Mobile Sidebar -->
+<div *ngIf="isMenuOpen" class="mobile-sidebar open">
+  <div class="flex items-center justify-between p-4 bg-gray-900">
+    <span class="text-lg font-semibold">Menu</span>
+    <button (click)="toggleMenu()" aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-teal-400 transition duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <ul class="flex flex-col py-6 space-y-4 text-lg font-semibold">
+    <li>
+      <a href="#home" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Home</a>
+    </li>
+    <li>
+      <a href="#about" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">About</a>
+    </li>
+    <li>
+      <a href="#projects" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Projects</a>
+    </li>
+    <li>
+      <a href="#contact" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Contact</a>
+    </li>
+  </ul>
+</div>
+
+</header>
