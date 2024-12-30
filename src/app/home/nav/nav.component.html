@@ -34,6 +34,14 @@
           <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
         </a>
       </li>
+      <li [ngClass]="{'active-link': activeLink === 'skills'}">
+        <a href="#skills" class="relative group pb-2">
+          <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-blue-400 group-hover:to-green-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
+            Skills
+          </span>
+          <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
+        </a>
+      </li>
       <li [ngClass]="{'active-link': activeLink === 'contact'}">
         <a href="#contact" class="relative group pb-2">
           <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:via-blue-400 group-hover:to-green-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
@@ -82,6 +90,9 @@
     </li>
     <li>
       <a href="#projects" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Projects</a>
+    </li>
+    <li>
+      <a href="#skills" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Projects</a>
     </li>
     <li>
       <a href="#contact" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Contact</a>

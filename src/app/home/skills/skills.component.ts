@@ -19,6 +19,9 @@ export class SkillsComponent implements OnInit {
     'Responsive Design',
     'Web Optimization',
     'Network Management',
+    'Graphic Design',
+    'Software Installation',
+    'Git & Github',
   ];
   displayedSkills: string[] = [];
   completedSkills: string[] = [];
