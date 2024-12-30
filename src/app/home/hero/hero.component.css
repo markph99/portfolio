@@ -1,0 +1,22 @@
+/* Add Tailwind utilities if needed */
+#cursor-effects {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.particle {
+  animation: fadeOut 1.5s ease-out forwards;
+}
+
+/* Keyframe for fade-out effect */
+@keyframes fadeOut {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

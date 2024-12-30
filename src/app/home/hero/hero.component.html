@@ -1,1 +1,51 @@
-<p>hero works!</p>
+<section
+  id="hero"
+  class="relative bg-gray-900 text-gray-200 py-20 px-4 sm:py-32 sm:px-12 overflow-hidden"
+  (mousemove)="onMouseMove($event)"
+>
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <!-- Profile Image with Glowing Border -->
+    <div class="relative mb-6">
+      <div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full p-1 animate-pulse"></div>
+      <img
+        src="/Profile.jpg"
+        alt="Your Name"
+        class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full mx-auto object-cover shadow-xl border-4 border-gray-900"
+      />
+    </div>
+
+    <!-- Text Section -->
+    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
+      Hi, I'm
+      <span class="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
+        Mark Jan Tac-an
+      </span>
+    </h1>
+    <p class="text-lg sm:text-xl mb-8">
+      I am a <span class="font-semibold text-teal-400">{{ dynamicText }}</span>
+    </p>
+    <a
+      href="#projects"
+      class="inline-block bg-gradient-to-r from-teal-500 to-blue-500 hover:from-blue-500 hover:to-teal-500 text-white text-lg font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+    >
+      Check Out My Work
+    </a>
+  </div>
+
+  <!-- Moving Floating Shapes -->
+  <div class="absolute inset-0 pointer-events-none" id="cursor-effects">
+    <div
+      *ngFor="let particle of particles"
+      [ngStyle]="{
+        top: particle.y + 'px',
+        left: particle.x + 'px',
+        width: particle.size + 'px',
+        height: particle.size + 'px',
+        opacity: particle.opacity,
+        backgroundColor: particle.color
+      }"
+      class="absolute rounded-full pointer-events-none"
+      [class]="particle.class"
+    ></div>
+  </div>
+</section>
