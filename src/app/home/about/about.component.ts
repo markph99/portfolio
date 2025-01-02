@@ -1,13 +1,17 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   standalone: true,
   imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrls: ['./about.component.css'],
 })
-export class AboutComponent implements AfterViewInit{
+export class AboutComponent implements AfterViewInit {
+  isVisible = false;
+
+  constructor(private el: ElementRef) {}
+
   ngAfterViewInit() {
     const element = document.getElementById("who-i-am");
     const phrases = [
@@ -38,5 +42,19 @@ export class AboutComponent implements AfterViewInit{
     };
 
     typeWriter(); // Start typing animation
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    const imageElement = this.el.nativeElement.querySelector('.image-friendly');
+    const rect = imageElement.getBoundingClientRect();
+
+    // Check if the image is in the viewport
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      // Trigger animation when the element is in view
+      this.isVisible = true;
+    } else {
+      this.isVisible = false;
+    }
   }
 }

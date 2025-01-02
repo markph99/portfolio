@@ -1,34 +1,81 @@
-.typing-effect {
+/* Typing Animation Container */
+.typing-container {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.25rem;
-  color: #e2e8f0;
-  white-space: nowrap;
-  overflow: hidden;
-  padding-right: 10px;
-  animation: typing 3.5s steps(30) 1s forwards, blink 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-/* Success message styling */
-.success-message {
-  background-color: #38a169; /* Green */
-  color: white;
-  padding: 10px;
+  color: #d1d5db; /* Tailwind's text-gray-300 */
+  font-size: 1.2rem;
   text-align: center;
-  border-radius: 5px;
-  margin-top: 20px;
+  white-space: pre-wrap;
+  margin-top: 20px; /* Adds spacing for better layout balance */
 }
 
+.input-text {
+  color: #9ca3af; /* Tailwind's text-gray-400 */
+  font-weight: bold;
+}
+
+.typing-effect {
+  border-right: 2px solid #d1d5db; /* Tailwind's text-gray-300 */
+  animation: blink 0.8s step-end infinite;
+}
 
 @keyframes blink {
   50% {
     border-color: transparent;
   }
+}
+
+/* Success Message */
+.success-message {
+  color: #10b981; /* Tailwind's text-green-500 */
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Animation Section Styling */
+.animation-section {
+  background-color: #1f2937; /* Matches Tailwind's bg-gray-800 */
+  padding: 40px 20px; /* Increased padding for better alignment */
+  border-radius: 8px; /* Smooth edges for a modern look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center; /* Centers the text content */
+  color: #e5e7eb; /* Ensures text contrast, Tailwind's text-gray-200 */
+}
+
+/* Form Styling */
+.field input,
+.field textarea {
+  background-color: #374151; /* Tailwind's bg-gray-700 */
+  color: #e5e7eb; /* Tailwind's text-gray-200 */
+  padding: 12px; /* Slight padding for input */
+  border-radius: 4px; /* Rounded edges for a modern look */
+  border: 1px solid #4b5563; /* Tailwind's border-gray-600 */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus Styles */
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #00eaff; /* Aqua focus border */
+  box-shadow: 0 0 8px #00eaff; /* Aqua glow */
+}
+
+/* Button Styling */
+button {
+  background-color: #1abc9c; /* Matches the green color from the image */
+  color: #ffffff; /* White text for contrast */
+  padding: 12px 24px; /* Balanced padding */
+  border-radius: 4px; /* Rounded corners */
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #16a085; /* Slightly darker green for hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 8px #1abc9c; /* Glow effect matching button color */
 }

@@ -29,3 +29,23 @@
   word-wrap: break-word; /* Break long words properly */
   white-space: normal; /* Allows text to wrap */
 }
+
+@keyframes friendlyMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.image-friendly {
+  transition: transform 1s ease-in-out;
+}
+
+.animate-friend {
+  animation: friendlyMove 1.5s ease-out forwards;
+}
