@@ -1,86 +1,80 @@
-<div class="bg-gray-900 text-gray-200 min-h-screen flex items-center justify-center ">
-  <div class="container mx-auto py-12 px-6">
-    <!-- Title Section -->
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-extrabold text-teal-500 mb-4">Contact Me</h1>
-      <p class="text-lg text-gray-300">
-        Have a question or want to work together? Drop me a message!
-      </p>
-    </div>
-
-    <!-- Contact Form and Typing Animation -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <!-- Contact Form -->
-      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="bg-gray-800 rounded-lg p-8 shadow-lg space-y-6">
-        <!-- Name Field -->
-        <div class="mb-4">
-          <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            [(ngModel)]="formData.name"
-            required
-            class="w-full bg-gray-700 text-gray-200 rounded-lg p-4"
-            placeholder="John Doe"
-            (focus)="startTypingAnimation('name')"
-            (input)="onInputChange('name', $event)"
-          />
-        </div>
-
-        <!-- Email Field -->
-        <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            [(ngModel)]="formData.email"
-            required
-            class="w-full bg-gray-700 text-gray-200 rounded-lg p-4"
-            placeholder="example@mail.com"
-            (focus)="startTypingAnimation('email')"
-            (input)="onInputChange('email', $event)"
-          />
-        </div>
-
-        <!-- Message Field -->
-        <div class="mb-4">
-          <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Your Message</label>
-          <textarea
-            id="message"
-            name="message"
-            [(ngModel)]="formData.message"
-            required
-            rows="5"
-            class="w-full bg-gray-700 text-gray-200 rounded-lg p-4"
-            placeholder="Type your message here..."
-            (focus)="startTypingAnimation('message')"
-            (input)="onInputChange('message', $event)"
-          ></textarea>
-        </div>
-
-        <!-- Submit Button -->
-        <button
-          type="submit"
-          class="w-full bg-teal-500 text-white py-3 rounded-lg shadow-lg hover:bg-teal-600 transition duration-300"
-        >
-          Send Message
-        </button>
-      </form>
-
-      <!-- Success Message -->
-      <div *ngIf="successMessage" class="w-full bg-green-500 text-white py-3 rounded-lg text-center mt-4">
-        {{ successMessage }}
-      </div>
-
-      <!-- Typing Animation -->
-      <div class="bg-gray-800 rounded-lg p-8 shadow-lg space-y-6">
-        <h2 class="text-lg font-medium text-gray-300">Start Typing:</h2>
-        <div class="typing-effect text-lg font-bold text-gray-200">
-          {{ typingText }}
-        </div>
-      </div>
-    </div>
+<form
+  (ngSubmit)="onSubmit()"
+  #contactForm="ngForm"
+  class="bg-gray-900  p-8 shadow-lg space-y-6"
+  novalidate
+>
+  <!-- Name Field -->
+  <div class="mb-4">
+    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="formData.name"
+      required
+      class="w-full bg-gray-700 text-gray-200 rounded-lg p-4"
+      placeholder="John Doe"
+      (focus)="startTypingAnimation('name')"
+      (input)="onInputChange('name', $event)"
+    />
+    <p
+      *ngIf="contactForm.submitted && contactForm.controls['name']?.invalid"
+      class="text-red-500 text-sm mt-2"
+    >
+      Name is required.
+    </p>
   </div>
-</div>
+
+  <!-- Email Field -->
+  <div class="mb-4">
+    <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      [(ngModel)]="formData.email"
+      required
+      class="w-full bg-gray-700 text-gray-200 rounded-lg p-4"
+      placeholder="example@mail.com"
+      (focus)="startTypingAnimation('email')"
+      (input)="onInputChange('email', $event)"
+    />
+    <p
+      *ngIf="contactForm.submitted && contactForm.controls['email']?.invalid"
+      class="text-red-500 text-sm mt-2"
+    >
+      A valid email is required.
+    </p>
+  </div>
+
+  <!-- Message Field -->
+  <div class="mb-4">
+    <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Your Message</label>
+    <textarea
+      id="message"
+      name="message"
+      [(ngModel)]="formData.message"
+      required
+      rows="5"
+      class="w-full bg-gray-700 text-gray-200 rounded-lg p-4"
+      placeholder="Type your message here..."
+      (focus)="startTypingAnimation('message')"
+      (input)="onInputChange('message', $event)"
+    ></textarea>
+    <p
+      *ngIf="contactForm.submitted && contactForm.controls['message']?.invalid"
+      class="text-red-500 text-sm mt-2"
+    >
+      Message is required.
+    </p>
+  </div>
+
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    class="w-full bg-teal-500 text-white py-3 rounded-lg shadow-lg hover:bg-teal-600 transition duration-300"
+  >
+    Send Message
+  </button>
+</form>
