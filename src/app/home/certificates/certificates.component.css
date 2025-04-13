@@ -1,0 +1,12 @@
+/* certificates.component.css */
+
+.active {
+  border: 4px solid #14b8a6; /* teal border for the active certificate */
+}
+
+/* Additional responsive tweaks (if needed) */
+@media (max-width: 640px) {
+  .h-56 {
+    height: 12rem;
+  }
+}

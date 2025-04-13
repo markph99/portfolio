@@ -18,6 +18,14 @@
           <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-blue-400 via-green-400 to-purple-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
         </a>
       </li>
+      <li [ngClass]="{'active-link': activeLink === 'certifications'}">
+        <a href="#certifications" class="relative group pb-2">
+          <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-green-400 group-hover:to-purple-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
+            Certifications
+          </span>
+          <span class="absolute left-0 bottom-0 block h-1 w-full bg-gradient-to-r from-blue-400 via-green-400 to-purple-400 rounded-full scale-x-0 transform transition-transform duration-500 ease-out group-hover:scale-x-100 group-hover:opacity-100"></span>
+        </a>
+      </li>
       <li [ngClass]="{'active-link': activeLink === 'about'}">
         <a href="#about" class="relative group pb-2">
           <span class="text-gray-300 group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:via-yellow-400 group-hover:to-red-400 group-hover:text-transparent group-hover:bg-clip-text transition duration-300">
@@ -84,6 +92,9 @@
   <ul class="flex flex-col py-6 space-y-4 text-lg font-semibold">
     <li>
       <a href="#home" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Home</a>
+    </li>
+    <li>
+      <a href="#certifications" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">Certifications</a>
     </li>
     <li>
       <a href="#about" class="block px-6 py-2 text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300">About</a>

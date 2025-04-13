@@ -1,0 +1,70 @@
+<div class="bg-gray-900 text-gray-200 min-h-screen relative">
+  <div class="container mx-auto py-12 px-6">
+    <!-- Title Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-extrabold text-teal-500 mb-4">My Certificates</h1>
+      <p class="text-xl text-gray-300">
+        Here are some of the certifications I have earned. Click on any certificate to view it in detail.
+      </p>
+    </div>
+
+    <!-- Certificates Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Certificate Card -->
+      <div
+        *ngFor="let certificate of certificates; let i = index"
+        [ngClass]="{'active': selectedIndex === i}"
+        class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer"
+        (click)="openModal(i)">
+        <img
+          [src]="certificate.image"
+          [alt]="certificate.title"
+          class="w-full h-56 sm:h-64 object-cover transition duration-300 transform hover:scale-110" />
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold text-teal-400 mb-2 hover:text-teal-300 transition duration-300">
+            {{ certificate.title }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div *ngIf="selectedCertificate !== null" @fadeInOut class="fixed inset-0 flex items-center justify-center z-50">
+    <!-- Modal backdrop -->
+    <div class="fixed inset-0 bg-gray-900 bg-opacity-75" (click)="closeModal()"></div>
+
+    <!-- Modal content -->
+    <div class="bg-gray-800 p-4 rounded-lg shadow-lg relative max-w-3xl mx-auto">
+      <button
+        class="absolute top-0 right-0 mt-2 mr-2 text-3xl text-gray-300 hover:text-white"
+        (click)="closeModal()">
+        &times;
+      </button>
+
+      <!-- Navigation Controls: Previous -->
+      <button
+        *ngIf="selectedIndex !== null && selectedIndex > 0"
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 text-3xl text-gray-300 hover:text-white"
+        (click)="navigate(-1)">
+        &#10094;
+      </button>
+
+      <!-- Navigation Controls: Next -->
+      <button
+        *ngIf="selectedIndex !== null && selectedIndex < certificates.length - 1"
+        class="absolute right-0 top-1/2 transform -translate-y-1/2 text-3xl text-gray-300 hover:text-white"
+        (click)="navigate(1)">
+        &#10095;
+      </button>
+
+      <img
+        [src]="selectedCertificate.image"
+        [alt]="selectedCertificate.title"
+        class="max-w-full max-h-[80vh] object-contain block mx-auto" />
+      <div class="mt-4 text-center">
+        <h2 class="text-2xl font-semibold text-teal-400">{{ selectedCertificate.title }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
