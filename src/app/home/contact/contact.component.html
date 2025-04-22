@@ -30,9 +30,8 @@
               id="name"
               name="name"
               [(ngModel)]="formData.name"
-              required
               class="w-full bg-gray-700 text-gray-200 p-3 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-teal-500"
-              placeholder="John Doe"
+              placeholder="Mark Jan"
               (focus)="startTypingAnimation('name')"
               (input)="onInput($event)"
             />
@@ -54,9 +53,8 @@
               id="email"
               name="email"
               [(ngModel)]="formData.email"
-              required
               class="w-full bg-gray-700 text-gray-200 p-3 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-teal-500"
-              placeholder="example@mail.com"
+              placeholder="king01062003@mail.com"
               (focus)="startTypingAnimation('email')"
               (input)="onInput($event)"
             />
@@ -77,10 +75,9 @@
               id="message"
               name="message"
               [(ngModel)]="formData.message"
-              required
               rows="4"
               class="w-full bg-gray-700 text-gray-200 p-3 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-teal-500"
-              placeholder="Type your message here..."
+              placeholder="Tell me more..."
               (focus)="startTypingAnimation('message')"
               (input)="onInput($event)"
             ></textarea>
