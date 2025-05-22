@@ -10,11 +10,10 @@ import { CertificatesComponent } from '../certificates/certificates.component';
 
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [NavComponent,CertificatesComponent, HeroComponent, AboutComponent, ProjectsComponent, FootComponent, ContactComponent, SkillsComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    imports: [NavComponent, CertificatesComponent, HeroComponent, AboutComponent, ProjectsComponent, FootComponent, ContactComponent, SkillsComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent {
 

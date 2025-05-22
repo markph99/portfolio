@@ -1,11 +1,10 @@
 import { AfterViewInit, Component, ElementRef, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-about',
-  standalone: true,
-  imports: [],
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
+    selector: 'app-about',
+    imports: [],
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements AfterViewInit {
   isVisible = false;
