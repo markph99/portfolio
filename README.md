@@ -1,6 +1,6 @@
 # Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+A modern personal portfolio built with Angular and Tailwind CSS.
 
 ## Development server
 
@@ -17,6 +17,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Continuous Integration
+
+GitHub Actions builds the application on every push and deploys the production bundle to GitHub Pages.
 
 ## Running end-to-end tests
 
